@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="table">
+
+    <% [1,2,3,4].each do |slot| %>
+    <div class="player_slot_<%= slot %>">
+      <div class="card_list">
+        <% @player_cards[slot].each do |card| %>
+          <div class="card">
+            <span><%= "#{card.card_number}#{CardService.new.card_type_to_icon card.card_type}" %></span>
+          </div>
+        <% end %>
+      </div>
+      <div class="card_group_list">
+        <% @player_card_groups[slot].each do |card_group| %>
+          <div class="card_group">
+            <% card_group.each do |card| %>
+              <span><%= "#{card['card_number']}#{CardService.new.card_type_to_icon card['card_type']}" %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="card_storage">
+      <% @card_storage.each do |card| %>
+        <div class="card">
+          <span><%= "#{card.card_number}#{CardService.new.card_type_to_icon card.card_type}" %></span>
+        </div>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>

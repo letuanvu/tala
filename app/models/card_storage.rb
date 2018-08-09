@@ -1,0 +1,2 @@
+class CardStorage < ApplicationRecord
+end
